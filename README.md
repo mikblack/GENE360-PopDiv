@@ -2,6 +2,9 @@
 
 Population diversity module for GENE360 at University of Otago using data from 1000 Genomes Project.
 
+Rendered html version of R markdown handout can be viewed at:
+ - https://rawgit.com/mikblack/GENE360-PopDiv/master/GENE360-popDiv.html
+
 Lectures slides:
  - GENE360_1000_genomes_lecture.pptx: Powerpoint lecture slides.
  - GENE360_1000_genomes_lecture.pdf: PDF version of .pptx lecture slides.
@@ -21,6 +24,5 @@ Data
  - GENE360snpAncestry.txt
  - subPopColours.RData
 
-Rendered html version of R markdown document can be viewed at:
 
 
