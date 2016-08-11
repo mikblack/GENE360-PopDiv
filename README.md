@@ -28,4 +28,6 @@ This work is licensed under a Creative Commons Attribution 4.0 International Lic
 You should have received a copy of the license along with this work. If not, see:<BR>
 http://creativecommons.org/licenses/by/4.0/
 
-![](https://upload.wikimedia.org/wikipedia/commons/5/5b/Cc-by-icon.png "CC-BY-4.0")
+<a href="http://creativecommons.org/licenses/by/4.0/"> 	
+	<img alt="CC-BY-4.0" src="https://upload.wikimedia.org/wikipedia/commons/5/5b/Cc-by-icon.png" />
+</a>
