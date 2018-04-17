@@ -1,3 +1,5 @@
+.gitignore
+GENE360-PopDiv.Rproj
 GENE360-popDiv_files
 GENE360-popDiv_cache
 GENE360_1000_genomes_lecture.pdf
@@ -6,3 +8,5 @@ GENE360-popDiv.pdf
 printing_notes.txt
 .Rhistory
 GENE360-popDiv-check.R
+.Rproj.user
+GENE360-popDiv-SOLUTION.R
