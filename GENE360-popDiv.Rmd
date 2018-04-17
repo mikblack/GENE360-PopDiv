@@ -12,15 +12,15 @@ The objective of this module is to give you some familiarity with the types of d
 The data we will be using are publicly available high-throughput sequencing 
 data from the 1000 Genomes Project.  The main web page for the 1000 Genomes Project is:
 
-http://1000genomes.org
+http://www.internationalgenome.org/
 
 The following page provides background information about the 1000 Genomes Project (and is worth reading, particularly the information about the populations being used in the study):
 
-http://www.1000genomes.org/about
+http://www.internationalgenome.org/about/
 
 We will be using the R and RStudio software applications to analyze the data. 
 
-R: https://cran.rstudio.com/
+R: https://cran.rstudio.com/ <BR>
 RStudio: https://www.rstudio.com/product/rstudio/download/
 
 ### Getting started - loading the data
@@ -75,7 +75,7 @@ AFR, African; AMR, Ad-Mixed American; EAS, East Asian; EUR, European; SAS, South
 
 Additional information about the composition of these populations can be found at:
 
-http://www.1000genomes.org/faq/which-populations-are-part-your-study
+http://www.internationalgenome.org/faq/which-populations-are-part-your-study
 
 ## Looking at SNP frequencies
 
@@ -266,7 +266,7 @@ source('calcMajorFreq.R')
 popFreqs = calcMajorFreq(snpAnsCount, ansPop)
 ```
 
-```{r}
+```{r, fig.height=4}
 ## Make a cluster tree based on these frequencies
 plot(hclust(dist(popFreqs)),hang=-1)
 ```
