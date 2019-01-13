@@ -2,8 +2,8 @@
 
 Population diversity module for GENE360 at University of Otago using data from the [1000 Genomes Project](http://www.1000genomes.org/).
 
-Rendered html version of R markdown handout can be viewed at:
- - https://rawgit.com/mikblack/GENE360-PopDiv/master/GENE360-popDiv.html
+Rendered markdown version of R markdown handout can be viewed inline at:
+ - https://github.com/mikblack/GENE360-PopDiv/blob/master/GENE360-popDiv.md
 
 R markdown
  - GENE360-popDiv.Rmd: R markdown file for analysis of [1000 Genomes Project](http://www.1000genomes.org/) data.
