@@ -6,7 +6,7 @@ Rendered version of R markdown handout can be viewed inline at:
  - https://github.com/mikblack/GENE360-PopDiv/blob/master/GENE360-popDiv.md
 
 R markdown
- - GENE360-popDiv.Rmd: R markdown file for analysis of [1000 Genomes Project](http://www.1000genomes.org/) data.
+ - GENE360-popDiv.Rmd: R markdown file for analysis of [1000 Genomes Project](http://www.internationalgenome.org/) data.
  - GENE360-popDiv.html: html version of R markdown output.
 
 R helper functions
