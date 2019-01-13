@@ -1,6 +1,6 @@
 ## GENE 360 - Population diversity module
 
-Population diversity module for GENE360 at University of Otago using data from the [1000 Genomes Project](http://www.1000genomes.org/).
+Population diversity module for GENE360 at University of Otago using data from the [1000 Genomes Project](http://www.internationalgenome.org/).
 
 Rendered version of R markdown handout can be viewed inline at:
  - https://github.com/mikblack/GENE360-PopDiv/blob/master/GENE360-popDiv.md
