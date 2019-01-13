@@ -2,7 +2,7 @@
 title: 'GENE360: 1000 Genomes Project Module'
 author: "Associate Professor Mik Black"
 date: "18 April 2018"
-output: html_document
+output: github_document
 ---
 
 ## Overview
