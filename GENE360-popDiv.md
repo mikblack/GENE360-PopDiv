@@ -13,6 +13,11 @@ The objective of this module is to give you some familiarity with the
 types of data and tools that are commonly used for genetic studies of
 population diversity.
 
+HMTL rendered version (slightly nicer looking) of this document is
+available at:
+
+<https://github.com/mikblack/GENE360-PopDiv/blob/master/GENE360-popDiv.md>
+
 The data we will be using are publicly available high-throughput
 sequencing data from the 1000 Genomes Project. The main web page for the
 1000 Genomes Project is:
