@@ -629,8 +629,8 @@ body {
 <p>will tell us how many rows (individuals) and columns the data set contains. The output shows us that there are 2504 rows and 11 columns.</p>
 <p>The column names can be found using the following command:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">names</span>(snpData)</a></code></pre></div>
-<pre><code>##  [1] &quot;SubjectID&quot;   &quot;Population&quot;  &quot;rs3826656&quot;   &quot;rs13387042&quot;  &quot;rs4779584&quot;   &quot;rs2398162&quot;  
-##  [7] &quot;rs7299940&quot;   &quot;rs1344706&quot;   &quot;rs7659604&quot;   &quot;rs734553&quot;    &quot;rs113010081&quot;
+<pre><code>##  [1] &quot;SubjectID&quot;   &quot;Population&quot;  &quot;rs3826656&quot;   &quot;rs13387042&quot;  &quot;rs4779584&quot;   &quot;rs2398162&quot;   &quot;rs7299940&quot;   &quot;rs1344706&quot;  
+##  [9] &quot;rs7659604&quot;   &quot;rs734553&quot;    &quot;rs113010081&quot;
 </code></pre>
 <p>To look at the full data set, you can use the “View” command:</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1"><span class="co">## Can view the data file within RStudio via </span></a>
@@ -689,7 +689,72 @@ body {
 <p>These analyses can be repeated for different SNPs by changing the SNP ID (e.g., rs3826656) in the above commands.</p>
 <h3 id="why-look-at-these-snps">Why look at these SNPs?</h3>
 <p>The nine SNPs contained in this data set were not just randomly chosen - they are SNPs that have been found to be associated with altered disease risk. That is, an individual’s genotype at a particular position in the genome affects their risk of developing a particular disease. This is not absolute though, it really just raises or lowers the probability of disease - it doesn’t guarantee complete protection or susceptibility.</p>
-<p>| SNP | Alleles | Nearby Gene | Disease | | | ----------------------------------------------------------- | ------- | ----------- | ---------------------------------- | | | <a href="http://www.snpedia.com/index.php/Rs3826656">rs3826656</a> | A/G | CD33 | Alzheimer’s Disease | | | <a href="http://www.snpedia.com/index.php/Rs13387042">rs13387042</a> | A/G | DIRC3 | Breast Cancer | | | <a href="http://www.snpedia.com/index.php/Rs4779584">rs4779584</a> | T/C | GREM1 | Colorectal Cancer | | | <a href="http://www.snpedia.com/index.php/Rs2398162">rs2398162</a> | A/G | NR2F2 | Hypertension | | | <a href="http://www.snpedia.com/index.php/Rs7299940">rs7299940</a> | C/G | - | Panic Disorder | | | <a href="http://www.snpedia.com/index.php/Rs1344706">rs1344706</a> | A/C | ZNF408A | Schizophrenia and Bipolar Disorder | | | <a href="http://www.snpedia.com/index.php/Rs7659604">rs7659604</a> | T/C | TMEM155 | Type 2 Diabetes | | | <a href="http://www.snpedia.com/index.php/Rs734553">rs734553</a> | T/G | SLC2A9 | Gout | | | <a href="http://www.snpedia.com/index.php/Rs113010081">rs113010081</a> | C/T | CCR5 | HIV/AIDs “resistance” | |</p>
+<table>
+<thead>
+<tr class="header">
+<th>SNP</th>
+<th>Alleles</th>
+<th>Nearby Gene</th>
+<th>Disease</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="http://www.snpedia.com/index.php/Rs3826656">rs3826656</a></td>
+<td>A/G</td>
+<td>CD33</td>
+<td>Alzheimer’s Disease</td>
+</tr>
+<tr class="even">
+<td><a href="http://www.snpedia.com/index.php/Rs13387042">rs13387042</a></td>
+<td>A/G</td>
+<td>DIRC3</td>
+<td>Breast Cancer</td>
+</tr>
+<tr class="odd">
+<td><a href="http://www.snpedia.com/index.php/Rs4779584">rs4779584</a></td>
+<td>T/C</td>
+<td>GREM1</td>
+<td>Colorectal Cancer</td>
+</tr>
+<tr class="even">
+<td><a href="http://www.snpedia.com/index.php/Rs2398162">rs2398162</a></td>
+<td>A/G</td>
+<td>NR2F2</td>
+<td>Hypertension</td>
+</tr>
+<tr class="odd">
+<td><a href="http://www.snpedia.com/index.php/Rs7299940">rs7299940</a></td>
+<td>C/G</td>
+<td>-</td>
+<td>Panic Disorder</td>
+</tr>
+<tr class="even">
+<td><a href="http://www.snpedia.com/index.php/Rs1344706">rs1344706</a></td>
+<td>A/C</td>
+<td>ZNF408A</td>
+<td>Schizophrenia and Bipolar Disorder</td>
+</tr>
+<tr class="odd">
+<td><a href="http://www.snpedia.com/index.php/Rs7659604">rs7659604</a></td>
+<td>T/C</td>
+<td>TMEM155</td>
+<td>Type 2 Diabetes</td>
+</tr>
+<tr class="even">
+<td><a href="http://www.snpedia.com/index.php/Rs734553">rs734553</a></td>
+<td>T/G</td>
+<td>SLC2A9</td>
+<td>Gout</td>
+</tr>
+<tr class="odd">
+<td><a href="http://www.snpedia.com/index.php/Rs113010081">rs113010081</a></td>
+<td>C/T</td>
+<td>CCR5</td>
+<td>HIV/AIDs “resistance”</td>
+</tr>
+</tbody>
+</table>
 <p>For each SNP, increased risk of disease (or for rs113010081, decreased risk) is associated with the minor allele. Variation in genotype frequencies across populations can help to explain some of the population-specific differences in rates of different diseases.</p>
 <p>Clicking on SNP IDs in the table above will link through to aditional information about each variant.</p>
 <h2 id="population-diversity">Population diversity</h2>
@@ -860,12 +925,12 @@ body {
 <a class="sourceLine" id="cb40-6" title="6"></a>
 <a class="sourceLine" id="cb40-7" title="7"><span class="co">## Admixture data for first ten individuals </span></a>
 <a class="sourceLine" id="cb40-8" title="8">admix[, <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>]</a></code></pre></div>
-<pre><code>##                           [,1]      [,2]       [,3]      [,4]      [,5]      [,6]
-## African ancestry     0.8207639 0.2205823 0.01520012 0.1343279 0.1182994 0.2106127
-## Non-African ancestry 0.1792361 0.7794177 0.98479988 0.8656721 0.8817006 0.7893873
-##                            [,7]      [,8]      [,9]      [,10]
-## African ancestry     0.03185302 0.1336951 0.2145277 0.01200789
-## Non-African ancestry 0.96814698 0.8663049 0.7854723 0.98799211
+<pre><code>##                           [,1]      [,2]       [,3]      [,4]      [,5]      [,6]       [,7]      [,8]      [,9]
+## African ancestry     0.8207639 0.2205823 0.01520012 0.1343279 0.1182994 0.2106127 0.03185302 0.1336951 0.2145277
+## Non-African ancestry 0.1792361 0.7794177 0.98479988 0.8656721 0.8817006 0.7893873 0.96814698 0.8663049 0.7854723
+##                           [,10]
+## African ancestry     0.01200789
+## Non-African ancestry 0.98799211
 </code></pre>
 <p>Extract data for AFR_ASW population, and sort it based on level of African genetic ancestry(\dots)</p>
 <div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb42-1" title="1"><span class="co">## Extract data for ASW population</span></a>

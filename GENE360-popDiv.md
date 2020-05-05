@@ -79,8 +79,8 @@ The column names can be found using the following command:
 names(snpData)
 ```
 
-    ##  [1] "SubjectID"   "Population"  "rs3826656"   "rs13387042"  "rs4779584"   "rs2398162"  
-    ##  [7] "rs7299940"   "rs1344706"   "rs7659604"   "rs734553"    "rs113010081"
+    ##  [1] "SubjectID"   "Population"  "rs3826656"   "rs13387042"  "rs4779584"   "rs2398162"   "rs7299940"   "rs1344706"  
+    ##  [9] "rs7659604"   "rs734553"    "rs113010081"
 
 To look at the full data set, you can use the “View” command:
 
@@ -190,17 +190,17 @@ genome affects their risk of developing a particular disease. This is
 not absolute though, it really just raises or lowers the probability of
 disease - it doesn’t guarantee complete protection or susceptibility.
 
-| SNP                                                         | Alleles | Nearby Gene | Disease                            |  |
-| ----------------------------------------------------------- | ------- | ----------- | ---------------------------------- |  |
-| [rs3826656](http://www.snpedia.com/index.php/Rs3826656)     | A/G     | CD33        | Alzheimer’s Disease                |  |
-| [rs13387042](http://www.snpedia.com/index.php/Rs13387042)   | A/G     | DIRC3       | Breast Cancer                      |  |
-| [rs4779584](http://www.snpedia.com/index.php/Rs4779584)     | T/C     | GREM1       | Colorectal Cancer                  |  |
-| [rs2398162](http://www.snpedia.com/index.php/Rs2398162)     | A/G     | NR2F2       | Hypertension                       |  |
-| [rs7299940](http://www.snpedia.com/index.php/Rs7299940)     | C/G     | \-          | Panic Disorder                     |  |
-| [rs1344706](http://www.snpedia.com/index.php/Rs1344706)     | A/C     | ZNF408A     | Schizophrenia and Bipolar Disorder |  |
-| [rs7659604](http://www.snpedia.com/index.php/Rs7659604)     | T/C     | TMEM155     | Type 2 Diabetes                    |  |
-| [rs734553](http://www.snpedia.com/index.php/Rs734553)       | T/G     | SLC2A9      | Gout                               |  |
-| [rs113010081](http://www.snpedia.com/index.php/Rs113010081) | C/T     | CCR5        | HIV/AIDs “resistance”              |  |
+| SNP                                                         | Alleles | Nearby Gene | Disease                            |
+| ----------------------------------------------------------- | ------- | ----------- | ---------------------------------- |
+| [rs3826656](http://www.snpedia.com/index.php/Rs3826656)     | A/G     | CD33        | Alzheimer’s Disease                |
+| [rs13387042](http://www.snpedia.com/index.php/Rs13387042)   | A/G     | DIRC3       | Breast Cancer                      |
+| [rs4779584](http://www.snpedia.com/index.php/Rs4779584)     | T/C     | GREM1       | Colorectal Cancer                  |
+| [rs2398162](http://www.snpedia.com/index.php/Rs2398162)     | A/G     | NR2F2       | Hypertension                       |
+| [rs7299940](http://www.snpedia.com/index.php/Rs7299940)     | C/G     | \-          | Panic Disorder                     |
+| [rs1344706](http://www.snpedia.com/index.php/Rs1344706)     | A/C     | ZNF408A     | Schizophrenia and Bipolar Disorder |
+| [rs7659604](http://www.snpedia.com/index.php/Rs7659604)     | T/C     | TMEM155     | Type 2 Diabetes                    |
+| [rs734553](http://www.snpedia.com/index.php/Rs734553)       | T/G     | SLC2A9      | Gout                               |
+| [rs113010081](http://www.snpedia.com/index.php/Rs113010081) | C/T     | CCR5        | HIV/AIDs “resistance”              |
 
 For each SNP, increased risk of disease (or for rs113010081, decreased
 risk) is associated with the minor allele. Variation in genotype
@@ -521,12 +521,12 @@ rownames(admix) <- c("African ancestry", "Non-African ancestry")
 admix[, 1:10]
 ```
 
-    ##                           [,1]      [,2]       [,3]      [,4]      [,5]      [,6]
-    ## African ancestry     0.8207639 0.2205823 0.01520012 0.1343279 0.1182994 0.2106127
-    ## Non-African ancestry 0.1792361 0.7794177 0.98479988 0.8656721 0.8817006 0.7893873
-    ##                            [,7]      [,8]      [,9]      [,10]
-    ## African ancestry     0.03185302 0.1336951 0.2145277 0.01200789
-    ## Non-African ancestry 0.96814698 0.8663049 0.7854723 0.98799211
+    ##                           [,1]      [,2]       [,3]      [,4]      [,5]      [,6]       [,7]      [,8]      [,9]
+    ## African ancestry     0.8207639 0.2205823 0.01520012 0.1343279 0.1182994 0.2106127 0.03185302 0.1336951 0.2145277
+    ## Non-African ancestry 0.1792361 0.7794177 0.98479988 0.8656721 0.8817006 0.7893873 0.96814698 0.8663049 0.7854723
+    ##                           [,10]
+    ## African ancestry     0.01200789
+    ## Non-African ancestry 0.98799211
 
 Extract data for AFR\_ASW population, and sort it based on level of
 African genetic ancestry\(\dots\)
