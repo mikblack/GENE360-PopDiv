@@ -1,9 +1,15 @@
 ---
-title: 'GENE360: 1000 Genomes Project Module'
+title: 'GENE360 tutorial'
+subtitle: 'Exploring the genetic diversity of human populations'
 author: "Associate Professor Mik Black"
-date: "18 April 2018"
-output: github_document
+date: "6 May 2020"
+output:
+  html_document: default
+  github_document: default
 ---
+
+<!-- The following will produce markdown output that will be viewble on GitHub: -->
+<!-- rmarkdown::render('GENE360-popDiv.Rmd', output_format="github_document") -->
 
 ## Overview
 
@@ -37,9 +43,9 @@ Open RStudio and read in the first data set using the following command:
 snpData = read.table('GENE360snpData.txt',sep='\t',header=T)
 ```
 
-The ## characters indicate a comment - anything typed after them is ignored by R.  The next line tells R to read in data from the file "GENE360snpData.txt", which it calls "snpData". 
+The `##` characters indicate a comment - anything typed after them is ignored by R.  The next line tells R to read in data from the file "GENE360snpData.txt", which it calls "snpData". 
 
-In this handout, the "code" used to run commands in R (and any output produced) is indicated by `courier font`.  The "output" from each command appears below the code, prefixed by the ## symbols.
+In this handout, the "code" used to run commands in R (and any output produced) is indicated by `courier font`.  The "output" from each command appears below the code, prefixed by the `##` symbols.
 
 We can ask R about the characteristics of the snpData object.  The command:
 
@@ -49,7 +55,7 @@ dim(snpData)
 
 will tell us how many rows (individuals) and columns the data set contains.  The output shows us that there are 2504 rows and 11 columns.
 
-\pagebreak 
+
 The column names can be found using the following command:
 
 ```{r}
@@ -155,7 +161,7 @@ Have a look using the View command:
 View(snpAns)
 ```
 
-\pagebreak
+
 Note that we also have data about the sub-populations now:
 
 ```{r}
@@ -273,6 +279,110 @@ plot(hclust(dist(popFreqs)),hang=-1)
 
 The way in which the "leaves" of the tree cluster, reflects the similarity between the items analysed.  In this case the populations are grouped based on their genetic similarity, as measured by these particular loci.  Here it appears that the AMR (Ad-Mixed American), and SAS (South Asian) super-populations are most genetically similar, then EUR (European), followed by EAS (East Asian).  The AFR (African) super-population is the most genetically dissimilar relative to the others.  It is likely that these groupings reflect (to some degree) migration patterns and shared ancestry experienced by these populations.
 
+
+
+## Admixture
+
+We can also use the PCA data to explore admixture in the 1000 Genomes populations.
+
+Looking at he PCA plots we made above, it is fairly clear the the first principal component (PC1) relates to genetic variation that distinguishs the African super-population for the other super-populations.
+
+A very simple approach to looking at admixture involving African ancestry would be to rescale PC1 so that it provides an estimate of African ancestry for each individual.
+
+<b>Note:</b> this is a very crude and simplified method for exploring admixture - in a research setting we would use more sophisiticated approaches to investigate individuals' genetic ancestries.
+
+```{r, fig.width=10}
+## Get the data for PC1 (first column of the PCA matrix)
+pc1 = pca[,1]
+
+## Rescale the PC1 data so that it is on the 0-1 scale
+## (subtract the minimum, and divide through by the new maximum)
+pc1Prop = ( pc1 - min(pc1) ) / max( pc1 - min(pc1) )
+
+## Check the results
+range(pc1Prop)
+
+## And plot
+hist(pc1Prop, 50, xlab="African ancestry proportion", 
+     main="Proportion of African ancestry across 1000 Genomes individuals")
+```
+
+We can also look at this per subpopulation. Here is a summary of the admixture
+proportions based on PC1 for the AFR_ESN subpopulation:
+
+```{r, eval=FALSE, echo=FALSE}
+aa <= names(table(subPop)) %>% lapply(., function(x) summary(pc1Prop[subPop==x]))
+names(aa) = names(table(subPop))
+aa 
+```
+
+```{r}
+## Create new variable for subpopulations (just to make coding easier)
+subPop <- snpAns$SubPopulation 
+
+## Have a look at African ancestry proportion for AFR_ESN subpopulation
+summary( pc1Prop[subPop=="AFR_ESN"] )
+```
+
+It looks like this subpopulation has very low levels of admixture (and uniformly
+high levels of African ancestry).
+
+How about the AFR_ASW subpopulation?
+
+```{r}
+## Have a look at African ancestry proportion for AFR_ASW subpopulation
+summary( pc1Prop[subPop=="AFR_ASW"] )
+```
+
+Here it look like there is more evidence of admixture.  
+
+Lets try to reproduce the style of the admixture bar plots we saw last week.
+
+First we need to create a matrix of data where the rows sum to 1 for each individual.
+
+```{r}
+## Create a matrix where the rows sum to one per individual (i.e., column):
+admix <- rbind(pc1Prop, 1-pc1Prop)
+
+## Add row names
+rownames(admix) <- c("African ancestry", "Non-African ancestry")
+
+## Admixture data for first ten individuals 
+admix[, 1:10]
+```
+
+Extract data for AFR_ASW population, and sort it based on level of African genetic ancestry$\dots$
+
+```{r}
+## Extract data for ASW population
+asw_admix <- admix[, subPop=="AFR_ASW"]
+
+## Sort inidividuals based on level of African genetic ancestry
+asw_admix <- asw_admix[, order(asw_admix[1,])]
+```
+
+$\dots$and now we can make the bar plot:
+
+```{r, fig.width=10, fig.height=4.6}
+## Barplot of admixture proportions for ASW subpopulation
+barplot(asw_admix, legend=TRUE, args.legend=list(x="topleft"),
+        main="Admixture proportions for individuals in AFR_ASW subpopulation")
+```
+
+How about the AFR_ESN subpopulation?
+
+```{r}
+## Extract data and sort individuals
+esn_admix <- admix[, subPop=="AFR_ESN"]
+esn_admix <- esn_admix[, order(esn_admix[1,])]
+```
+
+```{r, fig.width=10, fig.height=4.6}
+## Barplot for AFR_ESN admixture
+barplot(esn_admix, legend=TRUE, args.legend=list(x="bottomleft"),
+        main="Admixture proportions for individuals in AFR_ESN population")
+```
+
 \pagebreak
 
 ## Assessment tasks
@@ -293,11 +403,12 @@ legend("topright", legend=names(table(snpAns$Population)), fill=pCols, cex=0.5)
 ##  - "cex" specifies the size of the points (or text, for the legend)
 ##  - "xlim" specifies the range of the x axis
 ##  - "fill" specifies the colours to be used in the legend
-```
+``` 
 Loading the `subPopColours.RData` file via:
 ```{r, eval=FALSE}
 load('subPopColours.RData')
 ```
+
 will provide two colour objects: `sbCols` and `subPopCol`, which you should be able to use to generate a PCA plot with the points coloured by sub-population.  
 
 Comment on the distribution of the sub-populations with respect to genetic variability.  Which of the sub-populations exhibit evidence of admixture, and which populations (sub- or super-) are the most likely contributors?  Is there support for these findings in the literature?  Provide a brief summary of any relevant publications you find.
@@ -306,3 +417,4 @@ Generate similar plots of PC1 _versus_ PC3 and PC2 _versus_ PC3.  Based on these
 
 3. Generate a phylogentic tree for the sub-population data.  Comment on how well the structure of the tree agrees with the relationships between the super- and sub-populations of the 1000 Genomes Project data.  Are there any super-populations that are split across different parts of the tree?  If so, what is the likely cause?  Discuss the shape of the tree (and the placement of the super- and sub-populations) in the context of the "out of Africa" theory of human migration. How does the shape of the tree support (or question) the proposed migration path?  Also comment of the relationship between the shape of the tree, and the distribution of the populations in the PCA plot you generated in (2).  What advantages and disadvantages do you feel the two plotting methods (PCA plot and phylogenetic tree) have when visualising genetic diversity data?
 
+4. Use PC2 to investigate admixture involving European and East Asian ancestries. Choose two sub-populations whose members exhibit substantial variability in their admixture proportions for these ancestries, and provide summary information for each.  Make admixture bar plots for these two sub-populations.  Comment on the range of variation that is present, and discuss these results in the context of historical human migration patterns.
