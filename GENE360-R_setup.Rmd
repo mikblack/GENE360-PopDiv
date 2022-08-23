@@ -1,7 +1,7 @@
 ---
 title: "GENE360 - software installation"
-author: "Mik Black"
-date: "6 May 2020"
+author: "Professor Mik Black"
+date: "24 August 2022"
 output: 
   html_document: default
   github_document: default

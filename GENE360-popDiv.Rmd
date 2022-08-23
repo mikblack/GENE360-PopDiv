@@ -1,8 +1,8 @@
 ---
 title: 'GENE360 tutorial'
 subtitle: 'Exploring the genetic diversity of human populations'
-author: "Associate Professor Mik Black"
-date: "4 August 2021"
+author: "Professor Mik Black"
+date: "24 August 2022"
 output:
   html_document: default
   github_document: default
@@ -36,18 +36,26 @@ RStudio: https://www.rstudio.com/product/rstudio/download/
 ### Getting started - loading the data
 
 To get started, we need to load some data.  I have placed a zip file containing
-the data files on the GENE360 Blackboard page.  Download and unzip this file - then we need to tell RStudio where to find the data.  This involves "setting the working directory" for R - choose "Set Working Directory" and then "Choose Directory" from the "Session" menu in RStudio, and then find the folder containing the module data and click "Open".
+the data files on the GENE360 Blackboard page.  Download and unzip this file - it should create a folder called **GENE360_1000_genomes** which contains all the files we need. Move this to wherever you would like it on your computer (or just leave it where it is if that works for you) - next we need to tell RStudio where to find the data. The easiest way to do that is to create an R project.
+
+To do this, select "New Project" from the File menu, then select "Existing Directory" and use the "Browse" button to select the **GENE360_1000_genomes** folder. Once you've done this, click "Create Project".
+
+R will now restart, and you should see the contents of the **GENE360_1000_genomes** folder display in the "Files" tab in the panel on the botom right of the RStudio application.
+
+Choose "New File" and then "R Script" from the file menu - this will open a blank file where you can save your R commands. Save this new as something informative (e.g., "gene360-tutorial.R") - the new file should now appear in the "Files" panel.
 
 The first data set we will look at contains genetic data on just a few loci (specific points in the genome) across the various populations being studied.  Looking at this small data set will give you a feel for what we mean by "genotype data" for a particular locus.
 
-Open RStudio and read in the first data set using the following command:
+Read in the first data set using the following command:
 
 ```{r}
 ## Read in the SNP data
 snpData = read.table('GENE360snpData.txt',sep='\t',header=T)
 ```
 
-The `##` characters indicate a comment - anything typed after them is ignored by R.  The next line tells R to read in data from the file "GENE360snpData.txt", which it calls "snpData". 
+The `##` characters indicate a comment - anything typed after them is ignored by R.  The next line tells R to read in data from the file "GENE360snpData.txt", which it calls "snpData".  
+
+Save the commands you use in the file you created above.  You can run a command from your file by moving the cursor to that line, and then holding down "Command" and "Enter" (on a Mac) or "Control" and "Enter" (Mac and Windows).
 
 In this handout, the "code" used to run commands in R (and any output produced) is indicated by `courier font`.  The "output" from each command appears below the code, prefixed by the `##` symbols.
 
@@ -58,7 +66,6 @@ dim(snpData)
 ```
 
 will tell us how many rows (individuals) and columns the data set contains.  The output shows us that there are 2504 rows and 9 columns.
-
 
 The column names can be found using the following command:
 
@@ -128,15 +135,15 @@ These analyses can be repeated for different SNPs by changing the SNP ID (e.g., 
 
 The seven SNPs contained in this data set were not just randomly chosen - they are SNPs that have been found to be associated with altered disease risk.  That is, an individual's genotype at a particular position in the genome affects their risk of developing a particular disease.  This is not absolute though, it really just raises or lowers the probability of disease - it doesn't guarantee complete protection or susceptibility.
 
-SNP | Alleles | Nearby Gene | Disease
-------------------------------------------------------------|---|---------|-----------
-[rs3826656](http://www.snpedia.com/index.php/Rs3826656)     |A/G| CD33    |Alzheimer's Disease
-[rs13387042](http://www.snpedia.com/index.php/Rs13387042)   |A/G| DIRC3   |Breast Cancer
-[rs4779584](http://www.snpedia.com/index.php/Rs4779584)     |T/C| GREM1   |Colorectal Cancer
-[rs2398162](http://www.snpedia.com/index.php/Rs2398162)     |A/G| NR2F2   |Hypertension
-[rs1344706](http://www.snpedia.com/index.php/Rs1344706)     |A/C| ZNF408A |Schizophrenia and Bipolar Disorder
-[rs7659604](http://www.snpedia.com/index.php/Rs7659604)     |T/C| TMEM155 |Type 2 Diabetes
-[rs734553](http://www.snpedia.com/index.php/Rs734553)       |T/G| SLC2A9  |Gout
+SNP | Link | Alleles | Nearby Gene | Disease
+-----------|---------------------------------------------|---|---------|-----------
+rs3826656  | http://www.snpedia.com/index.php/Rs3826656  |A/G| CD33    |Alzheimer's Disease
+rs13387042 | http://www.snpedia.com/index.php/Rs13387042 |A/G| DIRC3   |Breast Cancer
+rs4779584  | http://www.snpedia.com/index.php/Rs4779584  |T/C| GREM1   |Colorectal Cancer
+rs2398162  | http://www.snpedia.com/index.php/Rs2398162  |A/G| NR2F2   |Hypertension
+rs1344706  | http://www.snpedia.com/index.php/Rs1344706  |A/C| ZNF408A |Schizophrenia and Bipolar Disorder
+rs7659604  | http://www.snpedia.com/index.php/Rs7659604  |T/C| TMEM155 |Type 2 Diabetes
+rs734553   | http://www.snpedia.com/index.php/Rs734553   |T/G| SLC2A9  |Gout
 
 For each SNP, increased risk of disease is associated with the 
 minor allele.  Variation in genotype frequencies across populations can help to explain some of the population-specific differences in rates of different diseases.
@@ -420,3 +427,6 @@ Generate similar plots of PC1 _versus_ PC3 and PC2 _versus_ PC3.  Based on these
 3. Generate a phylogentic tree for the sub-population data.  Comment on how well the structure of the tree agrees with the relationships between the super- and sub-populations of the 1000 Genomes Project data.  Are there any super-populations that are split across different parts of the tree?  If so, what is the likely cause?  Discuss the shape of the tree (and the placement of the super- and sub-populations) in the context of the "out of Africa" theory of human migration. How does the shape of the tree support (or question) the proposed migration path?  Also comment of the relationship between the shape of the tree, and the distribution of the populations in the PCA plot you generated in (2).  What advantages and disadvantages do you feel the two plotting methods (PCA plot and phylogenetic tree) have when visualising genetic diversity data?
 
 4. Use PC2 to investigate admixture involving European and East Asian ancestries. Choose two sub-populations whose members exhibit substantial variability in their admixture proportions for these ancestries, and provide summary information for each.  Make admixture bar plots for these two sub-populations.  Comment on the range of variation that is present, and discuss these results in the context of historical human migration patterns.
+
+5. The Human Pangenome Reference Consortium is trying to build a reference pangenome which captures the full spectrum of genetic diversity across all human populations. A major component of this is the selection of appropriate samples. Discuss how plots of Principal Components could help with this process.
+

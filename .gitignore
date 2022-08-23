@@ -5,6 +5,7 @@ GENE360-popDiv_cache
 GENE360_1000_genomes_lecture.pdf
 GENE360_1000_genomes_lecture.pptx
 GENE360-popDiv.pdf
+GENE360-R_setup.pdf
 GENE360_1000_genomes_code.pdf
 printing_notes.txt
 .Rhistory
@@ -16,5 +17,7 @@ GENE360_1000_genomes
 GENE360-popDiv.R
 GENE360_1000_genomes_lecture_2021.pdf
 GENE360_1000_genomes_lecture_2021.pptx
+GENE360_1000_genomes_lecture_2022.pdf
+GENE360_1000_genomes_lecture_2022.pptx
 GENE360snpData-old.txt
 drop_snps.R
