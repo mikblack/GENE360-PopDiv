@@ -8,8 +8,14 @@ output:
   github_document: default
 ---
 
-<!-- The following will produce markdown output that will be viewble on GitHub: -->
+<!-- first run this code to generate GitHub formatted markdown: -->
 <!-- rmarkdown::render('GENE360-popDiv.Rmd', output_format="github_document") -->
+
+<!-- then knit the docuemnt to generate html -->
+<!-- then on the command line run:  -->
+<!-- wkhtmltopdf --footer-spacing 7 --footer-font-size 10 --footer-left 'GENE360 - exploring the genetic diversity of human populations' --footer-right '[page]/[topage]' --minimum-font-size 15 -B 23 -T 20 -R 20 -L 20 GENE360-popDiv.html GENE360-popDiv.pdf -->
+
+<!-- This gets around teh issue of getting "double links" when printing to PDF from a browser. -->
 
 ## Overview
 
@@ -343,11 +349,8 @@ How about the AFR_ASW subpopulation?
 summary( pc1Prop[subPop=="AFR_ASW"] )
 ```
 
-Here it look like there is more evidence of admixture.  
-
-Lets try to reproduce the style of the admixture bar plots we saw last week.
-
-First we need to create a matrix of data where the rows sum to 1 for each individual.
+Here it looks like there is more evidence of admixture. Lets try to reproduce the style of the admixture 
+bar plots we saw last week. First we need to create a matrix of data where the rows sum to 1 for each individual.
 
 ```{r}
 ## Create a matrix where the rows sum to one per individual (i.e., column):
@@ -356,11 +359,11 @@ admix <- rbind(pc1Prop, 1-pc1Prop)
 ## Add row names
 rownames(admix) <- c("African ancestry", "Non-African ancestry")
 
-## Admixture data for first ten individuals 
-admix[, 1:10]
+## Admixture data for first five individuals 
+admix[, 1:5]
 ```
 
-Extract data for AFR_ASW population, and sort it based on level of African genetic ancestry$\dots$
+Extract data for AFR_ASW population, and sort it based on level of African genetic ancestry:
 
 ```{r}
 ## Extract data for ASW population
@@ -370,11 +373,11 @@ asw_admix <- admix[, subPop=="AFR_ASW"]
 asw_admix <- asw_admix[, order(asw_admix[1,])]
 ```
 
-$\dots$and now we can make the bar plot:
+And now we can make the bar plot:
 
-```{r, fig.width=10, fig.height=4.6}
+```{r, fig.width=9, fig.height=3.95}
 ## Barplot of admixture proportions for ASW subpopulation
-barplot(asw_admix, legend=TRUE, args.legend=list(x="topleft"),
+barplot(asw_admix, legend=TRUE, args.legend=list(x="bottomright"),
         main="Admixture proportions for individuals in AFR_ASW subpopulation")
 ```
 
@@ -386,9 +389,9 @@ esn_admix <- admix[, subPop=="AFR_ESN"]
 esn_admix <- esn_admix[, order(esn_admix[1,])]
 ```
 
-```{r, fig.width=10, fig.height=4.6}
+```{r, fig.width=9, fig.height=3.95}
 ## Barplot for AFR_ESN admixture
-barplot(esn_admix, legend=TRUE, args.legend=list(x="bottomleft"),
+barplot(esn_admix, legend=TRUE, args.legend=list(x="bottomright"),
         main="Admixture proportions for individuals in AFR_ESN population")
 ```
 

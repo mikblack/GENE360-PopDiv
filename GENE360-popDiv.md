@@ -1,10 +1,14 @@
 GENE360 tutorial
 ================
-Associate Professor Mik Black
-4 August 2021
+Professor Mik Black
+24 August 2022
 
-<!-- The following will produce markdown output that will be viewble on GitHub: -->
+<!-- first run this code to generate GitHub formatted markdown: -->
 <!-- rmarkdown::render('GENE360-popDiv.Rmd', output_format="github_document") -->
+<!-- then knit the docuemnt to generate html -->
+<!-- then on the command line run:  -->
+<!-- wkhtmltopdf --footer-spacing 7 --footer-font-size 10 --footer-left 'GENE360 - exploring the genetic diversity of human populations' --footer-right '[page]/[topage]' --minimum-font-size 15 -B 23 -T 20 -R 20 -L 20 GENE360-popDiv.html GENE360-popDiv.pdf -->
+<!-- This gets around teh issue of getting "double links" when printing to PDF from a browser. -->
 
 ## Overview
 
@@ -39,18 +43,32 @@ R: <https://cran.rstudio.com/> <BR> RStudio:
 
 To get started, we need to load some data. I have placed a zip file
 containing the data files on the GENE360 Blackboard page. Download and
-unzip this file - then we need to tell RStudio where to find the data.
-This involves “setting the working directory” for R - choose “Set
-Working Directory” and then “Choose Directory” from the “Session” menu
-in RStudio, and then find the folder containing the module data and
-click “Open”.
+unzip this file - it should create a folder called
+**GENE360_1000_genomes** which contains all the files we need. Move this
+to wherever you would like it on your computer (or just leave it where
+it is if that works for you) - next we need to tell RStudio where to
+find the data. The easiest way to do that is to create an R project.
+
+To do this, select “New Project” from the File menu, then select
+“Existing Directory” and use the “Browse” button to select the
+**GENE360_1000_genomes** folder. Once you’ve done this, click “Create
+Project”.
+
+R will now restart, and you should see the contents of the
+**GENE360_1000_genomes** folder display in the “Files” tab in the panel
+on the botom right of the RStudio application.
+
+Choose “New File” and then “R Script” from the file menu - this will
+open a blank file where you can save your R commands. Save this new as
+something informative (e.g., “gene360-tutorial.R”) - the new file should
+now appear in the “Files” panel.
 
 The first data set we will look at contains genetic data on just a few
 loci (specific points in the genome) across the various populations
 being studied. Looking at this small data set will give you a feel for
 what we mean by “genotype data” for a particular locus.
 
-Open RStudio and read in the first data set using the following command:
+Read in the first data set using the following command:
 
 ``` r
 ## Read in the SNP data
@@ -60,6 +78,11 @@ snpData = read.table('GENE360snpData.txt',sep='\t',header=T)
 The `##` characters indicate a comment - anything typed after them is
 ignored by R. The next line tells R to read in data from the file
 “GENE360snpData.txt”, which it calls “snpData”.
+
+Save the commands you use in the file you created above. You can run a
+command from your file by moving the cursor to that line, and then
+holding down “Command” and “Enter” (on a Mac) or “Control” and “Enter”
+(Mac and Windows).
 
 In this handout, the “code” used to run commands in R (and any output
 produced) is indicated by `courier font`. The “output” from each command
@@ -83,8 +106,7 @@ The column names can be found using the following command:
 names(snpData)
 ```
 
-    ## [1] "SubjectID"  "Population" "rs3826656"  "rs13387042" "rs4779584" 
-    ## [6] "rs2398162"  "rs1344706"  "rs7659604"  "rs734553"
+    ## [1] "SubjectID"  "Population" "rs3826656"  "rs13387042" "rs4779584"  "rs2398162"  "rs1344706"  "rs7659604"  "rs734553"
 
 To look at the full data set, you can use the “View” command:
 
@@ -95,7 +117,7 @@ View(snpData)
 
 The second column is called “Population”. We can make a table of this
 information to see how many individuals are present in each population
-(the “$” sign tells R to use the “Population” column from the “snpData”"
+(the “$” sign tells R to use the “Population” column from the “snpData””
 object):
 
 ``` r
@@ -187,23 +209,23 @@ These analyses can be repeated for different SNPs by changing the SNP ID
 
 ### Why look at these SNPs?
 
-The seven SNPs contained in this data set were not just randomly chosen
-- they are SNPs that have been found to be associated with altered
-disease risk. That is, an individual’s genotype at a particular position
-in the genome affects their risk of developing a particular disease.
-This is not absolute though, it really just raises or lowers the
-probability of disease - it doesn’t guarantee complete protection or
+The seven SNPs contained in this data set were not just randomly
+chosen - they are SNPs that have been found to be associated with
+altered disease risk. That is, an individual’s genotype at a particular
+position in the genome affects their risk of developing a particular
+disease. This is not absolute though, it really just raises or lowers
+the probability of disease - it doesn’t guarantee complete protection or
 susceptibility.
 
-| SNP                                                       | Alleles | Nearby Gene | Disease                            |
-|-----------------------------------------------------------|---------|-------------|------------------------------------|
-| [rs3826656](http://www.snpedia.com/index.php/Rs3826656)   | A/G     | CD33        | Alzheimer’s Disease                |
-| [rs13387042](http://www.snpedia.com/index.php/Rs13387042) | A/G     | DIRC3       | Breast Cancer                      |
-| [rs4779584](http://www.snpedia.com/index.php/Rs4779584)   | T/C     | GREM1       | Colorectal Cancer                  |
-| [rs2398162](http://www.snpedia.com/index.php/Rs2398162)   | A/G     | NR2F2       | Hypertension                       |
-| [rs1344706](http://www.snpedia.com/index.php/Rs1344706)   | A/C     | ZNF408A     | Schizophrenia and Bipolar Disorder |
-| [rs7659604](http://www.snpedia.com/index.php/Rs7659604)   | T/C     | TMEM155     | Type 2 Diabetes                    |
-| [rs734553](http://www.snpedia.com/index.php/Rs734553)     | T/G     | SLC2A9      | Gout                               |
+| SNP        | Link                                          | Alleles | Nearby Gene | Disease                            |
+|------------|-----------------------------------------------|---------|-------------|------------------------------------|
+| rs3826656  | <http://www.snpedia.com/index.php/Rs3826656>  | A/G     | CD33        | Alzheimer’s Disease                |
+| rs13387042 | <http://www.snpedia.com/index.php/Rs13387042> | A/G     | DIRC3       | Breast Cancer                      |
+| rs4779584  | <http://www.snpedia.com/index.php/Rs4779584>  | T/C     | GREM1       | Colorectal Cancer                  |
+| rs2398162  | <http://www.snpedia.com/index.php/Rs2398162>  | A/G     | NR2F2       | Hypertension                       |
+| rs1344706  | <http://www.snpedia.com/index.php/Rs1344706>  | A/C     | ZNF408A     | Schizophrenia and Bipolar Disorder |
+| rs7659604  | <http://www.snpedia.com/index.php/Rs7659604>  | T/C     | TMEM155     | Type 2 Diabetes                    |
+| rs734553   | <http://www.snpedia.com/index.php/Rs734553>   | T/G     | SLC2A9      | Gout                               |
 
 For each SNP, increased risk of disease is associated with the minor
 allele. Variation in genotype frequencies across populations can help to
@@ -479,7 +501,7 @@ hist(pc1Prop, 50, xlab="African ancestry proportion",
 ![](GENE360-popDiv_files/figure-gfm/unnamed-chunk-22-1.png)<!-- -->
 
 We can also look at this per subpopulation. Here is a summary of the
-admixture proportions based on PC1 for the AFR\_ESN subpopulation:
+admixture proportions based on PC1 for the AFR_ESN subpopulation:
 
 ``` r
 ## Create new variable for subpopulations (just to make coding easier)
@@ -495,7 +517,7 @@ summary( pc1Prop[subPop=="AFR_ESN"] )
 It looks like this subpopulation has very low levels of admixture (and
 uniformly high levels of African ancestry).
 
-How about the AFR\_ASW subpopulation?
+How about the AFR_ASW subpopulation?
 
 ``` r
 ## Have a look at African ancestry proportion for AFR_ASW subpopulation
@@ -505,13 +527,10 @@ summary( pc1Prop[subPop=="AFR_ASW"] )
     ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
     ##  0.1249  0.7066  0.8033  0.7558  0.8438  0.9318
 
-Here it look like there is more evidence of admixture.
-
-Lets try to reproduce the style of the admixture bar plots we saw last
-week.
-
-First we need to create a matrix of data where the rows sum to 1 for
-each individual.
+Here it looks like there is more evidence of admixture. Lets try to
+reproduce the style of the admixture bar plots we saw last week. First
+we need to create a matrix of data where the rows sum to 1 for each
+individual.
 
 ``` r
 ## Create a matrix where the rows sum to one per individual (i.e., column):
@@ -520,19 +539,16 @@ admix <- rbind(pc1Prop, 1-pc1Prop)
 ## Add row names
 rownames(admix) <- c("African ancestry", "Non-African ancestry")
 
-## Admixture data for first ten individuals 
-admix[, 1:10]
+## Admixture data for first five individuals 
+admix[, 1:5]
 ```
 
     ##                           [,1]      [,2]       [,3]      [,4]      [,5]
     ## African ancestry     0.8207639 0.2205823 0.01520012 0.1343279 0.1182994
     ## Non-African ancestry 0.1792361 0.7794177 0.98479988 0.8656721 0.8817006
-    ##                           [,6]       [,7]      [,8]      [,9]      [,10]
-    ## African ancestry     0.2106127 0.03185302 0.1336951 0.2145277 0.01200789
-    ## Non-African ancestry 0.7893873 0.96814698 0.8663049 0.7854723 0.98799211
 
-Extract data for AFR\_ASW population, and sort it based on level of
-African genetic ancestry…
+Extract data for AFR_ASW population, and sort it based on level of
+African genetic ancestry:
 
 ``` r
 ## Extract data for ASW population
@@ -542,17 +558,17 @@ asw_admix <- admix[, subPop=="AFR_ASW"]
 asw_admix <- asw_admix[, order(asw_admix[1,])]
 ```
 
-…and now we can make the bar plot:
+And now we can make the bar plot:
 
 ``` r
 ## Barplot of admixture proportions for ASW subpopulation
-barplot(asw_admix, legend=TRUE, args.legend=list(x="topleft"),
+barplot(asw_admix, legend=TRUE, args.legend=list(x="bottomright"),
         main="Admixture proportions for individuals in AFR_ASW subpopulation")
 ```
 
 ![](GENE360-popDiv_files/figure-gfm/unnamed-chunk-28-1.png)<!-- -->
 
-How about the AFR\_ESN subpopulation?
+How about the AFR_ESN subpopulation?
 
 ``` r
 ## Extract data and sort individuals
@@ -562,7 +578,7 @@ esn_admix <- esn_admix[, order(esn_admix[1,])]
 
 ``` r
 ## Barplot for AFR_ESN admixture
-barplot(esn_admix, legend=TRUE, args.legend=list(x="bottomleft"),
+barplot(esn_admix, legend=TRUE, args.legend=list(x="bottomright"),
         main="Admixture proportions for individuals in AFR_ESN population")
 ```
 
@@ -642,3 +658,9 @@ by each of the first three principal components.
     bar plots for these two sub-populations. Comment on the range of
     variation that is present, and discuss these results in the context
     of historical human migration patterns.
+
+5.  The Human Pangenome Reference Consortium is trying to build a
+    reference pangenome which captures the full spectrum of genetic
+    diversity across all human populations. A major component of this is
+    the selection of appropriate samples. Discuss how plots of Principal
+    Components could help with this process.
