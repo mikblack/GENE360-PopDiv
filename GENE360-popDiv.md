@@ -1,14 +1,14 @@
 GENE360 tutorial
 ================
 Professor Mik Black
-24 August 2022
+12 September 2023
 
 <!-- first run this code to generate GitHub formatted markdown: -->
 <!-- rmarkdown::render('GENE360-popDiv.Rmd', output_format="github_document") -->
 <!-- then knit the docuemnt to generate html -->
 <!-- then on the command line run:  -->
 <!-- wkhtmltopdf --footer-spacing 7 --footer-font-size 10 --footer-left 'GENE360 - exploring the genetic diversity of human populations' --footer-right '[page]/[topage]' --minimum-font-size 15 -B 23 -T 20 -R 20 -L 20 GENE360-popDiv.html GENE360-popDiv.pdf -->
-<!-- This gets around teh issue of getting "double links" when printing to PDF from a browser. -->
+<!-- This gets around the issue of getting "double links" when printing to PDF from a browser. -->
 
 ## Overview
 
@@ -106,7 +106,8 @@ The column names can be found using the following command:
 names(snpData)
 ```
 
-    ## [1] "SubjectID"  "Population" "rs3826656"  "rs13387042" "rs4779584"  "rs2398162"  "rs1344706"  "rs7659604"  "rs734553"
+    ## [1] "SubjectID"  "Population" "rs3826656"  "rs13387042" "rs4779584" 
+    ## [6] "rs2398162"  "rs1344706"  "rs7659604"  "rs734553"
 
 To look at the full data set, you can use the “View” command:
 
@@ -117,8 +118,8 @@ View(snpData)
 
 The second column is called “Population”. We can make a table of this
 information to see how many individuals are present in each population
-(the “$” sign tells R to use the “Population” column from the “snpData””
-object):
+(the “\$” sign tells R to use the “Population” column from the
+“snpData”” object):
 
 ``` r
 table(snpData$Population)

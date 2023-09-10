@@ -1,14 +1,15 @@
 ---
 title: "GENE360 - software installation"
 author: "Professor Mik Black"
-date: "24 August 2022"
+date: "12 September 2023"
 output: 
   html_document: default
-  github_document: default
 ---
 
-<!-- Run line below in R to render multiple documents: -->
-<!-- rmarkdown::render(here::here("bioc461-setup.Rmd"), output_format='all') -->
+<!-- then knit document to generate html -->
+<!-- then on the command line run:  -->
+<!-- wkhtmltopdf --footer-spacing 7 --footer-font-size 10 --footer-left 'GENE360 - software installation'  --minimum-font-size 15 -B 23 -T 20 -R 20 -L 20 GENE360-R_setup.html GENE360-R_setup.pdf -->
+
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -25,7 +26,7 @@ Instructions for downloading the required files are contained in the
 
 ## R and RStudio on your computer, or Student Desktop?
 
-If you have problems getting R and RStudio installed (or accessing them via the Student Desktop), please get in touch with me via email: `mik.black@otago.ac.nz`
+If you have problems getting R and RStudio installed (or accessing them via the Student Desktop), please get in touch with me via email: mik.black@otago.ac.nz
 
 ### Your computer
 
@@ -33,13 +34,13 @@ If you are using your own computer for this lab, you will need to have R and RSt
 
 To install the latest version of R, visit the following website, and download the version for your operating system:
 
-`http://cran.stat.auckland.ac.nz`
+http://cran.stat.auckland.ac.nz
 
 If you are running a version of R earlier than 3.6.1, that is probably okay, but just be aware that older versions of R do sometimes cause problems.
 
 To install RStudio, visit the following website
 
-`https://rstudio.com/products/rstudio/download`
+https://posit.co/products/rstudio/download
 
 and download the free version of "RStudio Desktop" for your operating system.
 
@@ -49,7 +50,7 @@ If you already have RStudio installed, you can upgrade to the latest version by 
 
 If you are unable to install R and RStudio on your own device, then accessing these through the student desktop might be an option.  The following link:
 
-`https://student.desktop.otago.ac.nz`
+https://student.desktop.otago.ac.nz
 
 will open a Windows Desktop on your computer, and you can access RStudio from the Start Menu in the lower left of the screen.
 
