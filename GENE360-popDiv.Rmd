@@ -34,10 +34,8 @@ The following page provides background information about the 1000 Genomes Projec
 
 http://www.internationalgenome.org/about/
 
-We will be using the R and RStudio software applications to analyze the data. 
+We will be using the R and RStudio software applications to analyze the data (see separate PDF on Blackboard for software installation instructions).
 
-R: https://cran.rstudio.com/ <BR>
-RStudio: https://www.posit.co/product/rstudio/download/
 
 ### Getting started - loading the data
 

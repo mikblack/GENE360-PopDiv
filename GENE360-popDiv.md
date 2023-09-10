@@ -34,10 +34,8 @@ about the populations being used in the study):
 <http://www.internationalgenome.org/about/>
 
 We will be using the R and RStudio software applications to analyze the
-data.
-
-R: <https://cran.rstudio.com/> <BR> RStudio:
-<https://www.posit.co/product/rstudio/download/>
+data (see separate PDF on Blackboard for software installation
+instructions).
 
 ### Getting started - loading the data
 
