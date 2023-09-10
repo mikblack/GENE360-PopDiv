@@ -5,7 +5,7 @@ Professor Mik Black
 
 <!-- first run this code to generate GitHub formatted markdown: -->
 <!-- rmarkdown::render('GENE360-popDiv.Rmd', output_format="github_document") -->
-<!-- then knit the docuemnt to generate html -->
+<!-- then knit the document to generate html -->
 <!-- then on the command line run:  -->
 <!-- wkhtmltopdf --footer-spacing 7 --footer-font-size 10 --footer-left 'GENE360 - exploring the genetic diversity of human populations' --footer-right '[page]/[topage]' --minimum-font-size 15 -B 23 -T 20 -R 20 -L 20 GENE360-popDiv.html GENE360-popDiv.pdf -->
 <!-- This gets around the issue of getting "double links" when printing to PDF from a browser. -->
@@ -37,7 +37,7 @@ We will be using the R and RStudio software applications to analyze the
 data.
 
 R: <https://cran.rstudio.com/> <BR> RStudio:
-<https://www.rstudio.com/product/rstudio/download/>
+<https://www.posit.co/product/rstudio/download/>
 
 ### Getting started - loading the data
 
