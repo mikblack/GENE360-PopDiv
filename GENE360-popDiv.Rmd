@@ -42,9 +42,11 @@ We will be using the R and RStudio software applications to analyze the data (se
 To get started, we need to load some data.  I have placed a zip file containing
 the data files on the GENE360 Blackboard page.  Download and unzip this file - it should create a folder called **GENE360_1000_genomes** which contains all the files we need. Move this to wherever you would like it on your computer (or just leave it where it is if that works for you) - next we need to tell RStudio where to find the data. The easiest way to do that is to create an R project.
 
-To do this, select "New Project" from the File menu, then select "Existing Directory" and use the "Browse" button to select the  **GENE360_1000_genomes** folder. Once you've done this, click "Create Project".
+To do this, select "New Project" from the File menu, then select "Existing Directory" and use the "Browse" button to select 
+the <b>GENE360_1000_genomes</b> folder. Once you've done this, click "Create Project".
 
-R will now restart, and you should see the contents of the  **GENE360_1000_genomes** folder display in the "Files" tab in the panel on the botom right of the RStudio application.
+R will now restart, and you should see the contents of 
+the <b>GENE360_1000_genomes</b> folder display in the "Files" tab in the panel on the botom right of the RStudio application.
 
 Choose "New File" and then "R Script" from the file menu - this will open a blank file where you can save your R commands. Save this new as something informative (e.g., "gene360-tutorial.R") - the new file should now appear in the "Files" panel.
 

@@ -49,12 +49,12 @@ find the data. The easiest way to do that is to create an R project.
 
 To do this, select “New Project” from the File menu, then select
 “Existing Directory” and use the “Browse” button to select the
-**GENE360_1000_genomes** folder. Once you’ve done this, click “Create
+<b>GENE360_1000_genomes</b> folder. Once you’ve done this, click “Create
 Project”.
 
 R will now restart, and you should see the contents of the
-**GENE360_1000_genomes** folder display in the “Files” tab in the panel
-on the botom right of the RStudio application.
+<b>GENE360_1000_genomes</b> folder display in the “Files” tab in the
+panel on the botom right of the RStudio application.
 
 Choose “New File” and then “R Script” from the file menu - this will
 open a blank file where you can save your R commands. Save this new as
