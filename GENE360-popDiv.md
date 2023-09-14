@@ -1,13 +1,15 @@
 GENE360 tutorial
 ================
 Professor Mik Black
-12 September 2023
+13 September 2023
 
 <!-- first run this code to generate GitHub formatted markdown: -->
 <!-- rmarkdown::render('GENE360-popDiv.Rmd', output_format="github_document") -->
 <!-- then knit the document to generate html -->
-<!-- then on the command line run:  -->
-<!-- wkhtmltopdf --footer-spacing 7 --footer-font-size 10 --footer-left 'GENE360 - exploring the genetic diversity of human populations' --footer-right '[page]/[topage]' --minimum-font-size 15 -B 23 -T 20 -R 20 -L 20 GENE360-popDiv.html GENE360-popDiv.pdf -->
+<!-- then run:  -->
+<!-- 
+system("wkhtmltopdf --footer-spacing 7 --footer-font-size 10 --footer-left 'GENE360 - exploring the genetic diversity of human populations' --footer-right '[page]/[topage]' --minimum-font-size 15 -B 23 -T 20 -R 20 -L 20 GENE360-popDiv.html GENE360-popDiv.pdf") 
+-->
 <!-- This gets around the issue of getting "double links" when printing to PDF from a browser. -->
 
 ## Overview
@@ -104,8 +106,8 @@ The column names can be found using the following command:
 names(snpData)
 ```
 
-    ## [1] "SubjectID"  "Population" "rs3826656"  "rs13387042" "rs4779584" 
-    ## [6] "rs2398162"  "rs1344706"  "rs7659604"  "rs734553"
+    ## [1] "SubjectID"  "Population" "rs3826656"  "rs13387042" "rs4779584"  "rs2398162" 
+    ## [7] "rs1344706"  "rs7659604"  "rs734553"
 
 To look at the full data set, you can use the “View” command:
 
@@ -589,7 +591,7 @@ Use the data and code from above to answer the following questions. Hand
 in your code and the output generated, along with your answers to the
 questions below.
 
-1.  Select one of the nine SNPs from the first data set and investigate
+1.  Select one of the seven SNPs from the first data set and investigate
     its variation (in terms of genotype frequencies) across the
     populations of the 1000 Genomes Project. Briefly overview the
     support for this SNP being a modifier of disease risk, and try to
@@ -621,7 +623,7 @@ Loading the `subPopColours.RData` file via:
 load('subPopColours.RData')
 ```
 
-will provide two colour objects: `sbCols` and `subPopCol`, which you
+will provide two colour objects: `spCols` and `subPopCol`, which you
 should be able to use to generate a PCA plot with the points coloured by
 sub-population.
 

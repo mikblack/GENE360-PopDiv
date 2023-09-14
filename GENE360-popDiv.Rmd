@@ -2,7 +2,7 @@
 title: 'GENE360 tutorial'
 subtitle: 'Exploring the genetic diversity of human populations'
 author: "Professor Mik Black"
-date: "12 September 2023"
+date: "13 September 2023"
 output:
   html_document: default
   github_document: default
@@ -12,8 +12,12 @@ output:
 <!-- rmarkdown::render('GENE360-popDiv.Rmd', output_format="github_document") -->
 
 <!-- then knit the document to generate html -->
-<!-- then on the command line run:  -->
-<!-- wkhtmltopdf --footer-spacing 7 --footer-font-size 10 --footer-left 'GENE360 - exploring the genetic diversity of human populations' --footer-right '[page]/[topage]' --minimum-font-size 15 -B 23 -T 20 -R 20 -L 20 GENE360-popDiv.html GENE360-popDiv.pdf -->
+<!-- then run:  -->
+<!-- 
+system("wkhtmltopdf --footer-spacing 7 --footer-font-size 10 --footer-left 'GENE360 - exploring the genetic diversity of human populations' --footer-right '[page]/[topage]' --minimum-font-size 15 -B 23 -T 20 -R 20 -L 20 GENE360-popDiv.html GENE360-popDiv.pdf") 
+-->
+
+
 
 <!-- This gets around the issue of getting "double links" when printing to PDF from a browser. -->
 
@@ -401,7 +405,7 @@ barplot(esn_admix, legend=TRUE, args.legend=list(x="bottomright"),
 
 Use the data and code from above to answer the following questions.  Hand in your code and the output generated, along with your answers to the questions below.  
 
-1. Select one of the nine SNPs from the first data set and investigate its variation (in terms of genotype frequencies) across the populations of the 1000 Genomes Project.  Briefly overview the support for this SNP being a modifier of
+1. Select one of the seven SNPs from the first data set and investigate its variation (in terms of genotype frequencies) across the populations of the 1000 Genomes Project.  Briefly overview the support for this SNP being a modifier of
 disease risk, and try to find evidence (in the literature) for variation in population-specific risk as a result of differences in genotype frequency.
 
 2. Create a plot of PC1 _versus_ PC2, colouring points by sub-population rather than super-population.  Rather than use my `plotPCA` function, you will need to use R's generic plotting commands.  The following code generates a PCA plot from scratch, using the super-population colours:
@@ -421,7 +425,7 @@ Loading the `subPopColours.RData` file via:
 load('subPopColours.RData')
 ```
 
-will provide two colour objects: `sbCols` and `subPopCol`, which you should be able to use to generate a PCA plot with the points coloured by sub-population.  
+will provide two colour objects: `spCols` and `subPopCol`, which you should be able to use to generate a PCA plot with the points coloured by sub-population.  
 
 Comment on the distribution of the sub-populations with respect to genetic variability.  Which of the sub-populations exhibit evidence of admixture, and which populations (sub- or super-) are the most likely contributors?  Is there support for these findings in the literature?  Provide a brief summary of any relevant publications you find.
 

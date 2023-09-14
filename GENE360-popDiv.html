@@ -11,7 +11,7 @@
 
 <meta name="author" content="Professor Mik Black" />
 
-<meta name="date" content="2023-09-12" />
+<meta name="date" content="2023-09-13" />
 
 <title>GENE360 tutorial</title>
 
@@ -354,7 +354,7 @@ display: none;
 <h3 class="subtitle">Exploring the genetic diversity of human
 populations</h3>
 <h4 class="author">Professor Mik Black</h4>
-<h4 class="date">12 September 2023</h4>
+<h4 class="date">13 September 2023</h4>
 
 </div>
 
@@ -362,8 +362,10 @@ populations</h3>
 <!-- first run this code to generate GitHub formatted markdown: -->
 <!-- rmarkdown::render('GENE360-popDiv.Rmd', output_format="github_document") -->
 <!-- then knit the document to generate html -->
-<!-- then on the command line run:  -->
-<!-- wkhtmltopdf --footer-spacing 7 --footer-font-size 10 --footer-left 'GENE360 - exploring the genetic diversity of human populations' --footer-right '[page]/[topage]' --minimum-font-size 15 -B 23 -T 20 -R 20 -L 20 GENE360-popDiv.html GENE360-popDiv.pdf -->
+<!-- then run:  -->
+<!-- 
+system("wkhtmltopdf --footer-spacing 7 --footer-font-size 10 --footer-left 'GENE360 - exploring the genetic diversity of human populations' --footer-right '[page]/[topage]' --minimum-font-size 15 -B 23 -T 20 -R 20 -L 20 GENE360-popDiv.html GENE360-popDiv.pdf") 
+-->
 <!-- This gets around the issue of getting "double links" when printing to PDF from a browser. -->
 <div id="overview" class="section level2">
 <h2>Overview</h2>
@@ -839,7 +841,7 @@ barplot(esn_admix, legend=TRUE, args.legend=list(x=&quot;bottomright&quot;),
 Hand in your code and the output generated, along with your answers to
 the questions below.</p>
 <ol style="list-style-type: decimal">
-<li><p>Select one of the nine SNPs from the first data set and
+<li><p>Select one of the seven SNPs from the first data set and
 investigate its variation (in terms of genotype frequencies) across the
 populations of the 1000 Genomes Project. Briefly overview the support
 for this SNP being a modifier of disease risk, and try to find evidence
@@ -862,7 +864,7 @@ legend(&quot;topright&quot;, legend=names(table(snpAns$Population)), fill=pCols,
 ##  - &quot;fill&quot; specifies the colours to be used in the legend</code></pre>
 <p>Loading the <code>subPopColours.RData</code> file via:</p>
 <pre class="r"><code>load(&#39;subPopColours.RData&#39;)</code></pre>
-<p>will provide two colour objects: <code>sbCols</code> and
+<p>will provide two colour objects: <code>spCols</code> and
 <code>subPopCol</code>, which you should be able to use to generate a
 PCA plot with the points coloured by sub-population.</p>
 <p>Comment on the distribution of the sub-populations with respect to
