@@ -1,14 +1,14 @@
 GENE360 tutorial
 ================
 Professor Mik Black
-13 September 2023
+28 August 2024
 
 <!-- first run this code to generate GitHub formatted markdown: -->
 <!-- rmarkdown::render('GENE360-popDiv.Rmd', output_format="github_document") -->
 <!-- then knit the document to generate html -->
 <!-- then run:  -->
 <!-- 
-system("wkhtmltopdf --footer-spacing 7 --footer-font-size 10 --footer-left 'GENE360 - exploring the genetic diversity of human populations' --footer-right '[page]/[topage]' --minimum-font-size 15 -B 23 -T 20 -R 20 -L 20 GENE360-popDiv.html GENE360-popDiv.pdf") 
+system("wkhtmltopdf --footer-spacing 7 --footer-font-size 10 --footer-left 'GENE360 - exploring the genetic diversity of human populations' --footer-right '[page]/[topage]' --minimum-font-size 12 -B 23 -T 20 -R 20 -L 20 GENE360-popDiv.html GENE360-popDiv.pdf") 
 -->
 <!-- This gets around the issue of getting "double links" when printing to PDF from a browser. -->
 
@@ -106,8 +106,8 @@ The column names can be found using the following command:
 names(snpData)
 ```
 
-    ## [1] "SubjectID"  "Population" "rs3826656"  "rs13387042" "rs4779584"  "rs2398162" 
-    ## [7] "rs1344706"  "rs7659604"  "rs734553"
+    ## [1] "SubjectID"  "Population" "rs3826656"  "rs13387042" "rs4779584"  "rs2398162"  "rs1344706"  "rs7659604" 
+    ## [9] "rs734553"
 
 To look at the full data set, you can use the “View” command:
 
