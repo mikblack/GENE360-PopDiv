@@ -1,7 +1,7 @@
 ---
 title: "GENE360 - software installation"
 author: "Professor Mik Black"
-date: "12 September 2023"
+date: "28 August 2024"
 output: 
   html_document: default
 ---
@@ -30,7 +30,7 @@ If you have problems getting R and RStudio installed (or accessing them via the 
 
 ### Your computer
 
-If you are using your own computer for this lab, you will need to have R and RStudio installed.  Install or update R **before** you install or update RStudio.
+If you are using your own computer for this session, you will need to have R and RStudio installed.  Install or update R **before** you install or update RStudio.
 
 To install the latest versions of R and RStudio Desktop, visit the following website, and follow the installation instructions:
 
