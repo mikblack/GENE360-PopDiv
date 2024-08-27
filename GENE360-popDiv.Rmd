@@ -2,7 +2,7 @@
 title: 'GENE360 tutorial'
 subtitle: 'Exploring the genetic diversity of human populations'
 author: "Professor Mik Black"
-date: "13 September 2023"
+date: "28 August 2024"
 output:
   html_document: default
   github_document: default
@@ -14,7 +14,7 @@ output:
 <!-- then knit the document to generate html -->
 <!-- then run:  -->
 <!-- 
-system("wkhtmltopdf --footer-spacing 7 --footer-font-size 10 --footer-left 'GENE360 - exploring the genetic diversity of human populations' --footer-right '[page]/[topage]' --minimum-font-size 15 -B 23 -T 20 -R 20 -L 20 GENE360-popDiv.html GENE360-popDiv.pdf") 
+system("wkhtmltopdf --footer-spacing 7 --footer-font-size 10 --footer-left 'GENE360 - exploring the genetic diversity of human populations' --footer-right '[page]/[topage]' --minimum-font-size 12 -B 23 -T 20 -R 20 -L 20 GENE360-popDiv.html GENE360-popDiv.pdf") 
 -->
 
 

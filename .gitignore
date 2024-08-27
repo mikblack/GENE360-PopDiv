@@ -15,12 +15,8 @@ GENE360-popDiv-SOLUTION*
 GENE360_1000_genomes.zip
 GENE360_1000_genomes
 GENE360-popDiv.R
-GENE360_1000_genomes_lecture_2021.pdf
-GENE360_1000_genomes_lecture_2021.pptx
-GENE360_1000_genomes_lecture_2022.pdf
-GENE360_1000_genomes_lecture_2022.pptx
-GENE360_1000_genomes_lecture_2023.pdf
-GENE360_1000_genomes_lecture_2023.pptx
+GENE360_1000_genomes_lecture_202*.pdf
+GENE360_1000_genomes_lecture_202*.pptx
 GENE360snpData-old.txt
 drop_snps.R
 .DS_Store
