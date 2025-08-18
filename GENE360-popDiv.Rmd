@@ -2,7 +2,7 @@
 title: 'GENE360 tutorial'
 subtitle: 'Exploring the genetic diversity of human populations'
 author: "Professor Mik Black"
-date: "28 August 2024"
+date: "27 August 2025"
 output:
   html_document: default
   github_document: default

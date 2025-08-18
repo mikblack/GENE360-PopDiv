@@ -1,15 +1,20 @@
 GENE360 tutorial
 ================
 Professor Mik Black
-28 August 2024
+27 August 2025
 
 <!-- first run this code to generate GitHub formatted markdown: -->
+
 <!-- rmarkdown::render('GENE360-popDiv.Rmd', output_format="github_document") -->
+
 <!-- then knit the document to generate html -->
+
 <!-- then run:  -->
+
 <!-- 
 system("wkhtmltopdf --footer-spacing 7 --footer-font-size 10 --footer-left 'GENE360 - exploring the genetic diversity of human populations' --footer-right '[page]/[topage]' --minimum-font-size 12 -B 23 -T 20 -R 20 -L 20 GENE360-popDiv.html GENE360-popDiv.pdf") 
 -->
+
 <!-- This gets around the issue of getting "double links" when printing to PDF from a browser. -->
 
 ## Overview
@@ -106,8 +111,8 @@ The column names can be found using the following command:
 names(snpData)
 ```
 
-    ## [1] "SubjectID"  "Population" "rs3826656"  "rs13387042" "rs4779584"  "rs2398162"  "rs1344706"  "rs7659604" 
-    ## [9] "rs734553"
+    ## [1] "SubjectID"  "Population" "rs3826656"  "rs13387042" "rs4779584"  "rs2398162"  "rs1344706" 
+    ## [8] "rs7659604"  "rs734553"
 
 To look at the full data set, you can use the “View” command:
 
@@ -218,15 +223,15 @@ disease. This is not absolute though, it really just raises or lowers
 the probability of disease - it doesn’t guarantee complete protection or
 susceptibility.
 
-| SNP        | Link                                          | Alleles | Nearby Gene | Disease                            |
-|------------|-----------------------------------------------|---------|-------------|------------------------------------|
-| rs3826656  | <http://www.snpedia.com/index.php/Rs3826656>  | A/G     | CD33        | Alzheimer’s Disease                |
-| rs13387042 | <http://www.snpedia.com/index.php/Rs13387042> | A/G     | DIRC3       | Breast Cancer                      |
-| rs4779584  | <http://www.snpedia.com/index.php/Rs4779584>  | T/C     | GREM1       | Colorectal Cancer                  |
-| rs2398162  | <http://www.snpedia.com/index.php/Rs2398162>  | A/G     | NR2F2       | Hypertension                       |
-| rs1344706  | <http://www.snpedia.com/index.php/Rs1344706>  | A/C     | ZNF408A     | Schizophrenia and Bipolar Disorder |
-| rs7659604  | <http://www.snpedia.com/index.php/Rs7659604>  | T/C     | TMEM155     | Type 2 Diabetes                    |
-| rs734553   | <http://www.snpedia.com/index.php/Rs734553>   | T/G     | SLC2A9      | Gout                               |
+| SNP | Link | Alleles | Nearby Gene | Disease |
+|----|----|----|----|----|
+| rs3826656 | <http://www.snpedia.com/index.php/Rs3826656> | A/G | CD33 | Alzheimer’s Disease |
+| rs13387042 | <http://www.snpedia.com/index.php/Rs13387042> | A/G | DIRC3 | Breast Cancer |
+| rs4779584 | <http://www.snpedia.com/index.php/Rs4779584> | T/C | GREM1 | Colorectal Cancer |
+| rs2398162 | <http://www.snpedia.com/index.php/Rs2398162> | A/G | NR2F2 | Hypertension |
+| rs1344706 | <http://www.snpedia.com/index.php/Rs1344706> | A/C | ZNF408A | Schizophrenia and Bipolar Disorder |
+| rs7659604 | <http://www.snpedia.com/index.php/Rs7659604> | T/C | TMEM155 | Type 2 Diabetes |
+| rs734553 | <http://www.snpedia.com/index.php/Rs734553> | T/G | SLC2A9 | Gout |
 
 For each SNP, increased risk of disease is associated with the minor
 allele. Variation in genotype frequencies across populations can help to
