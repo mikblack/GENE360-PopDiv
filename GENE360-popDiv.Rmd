@@ -34,9 +34,13 @@ data from the 1000 Genomes Project.  The main web page for the 1000 Genomes Proj
 
 http://www.internationalgenome.org/
 
-The following page provides background information about the 1000 Genomes Project (and is worth reading, particularly the information about the populations being used in the study):
+The following page provides background information about the 1000 Genomes Project:
 
 http://www.internationalgenome.org/about/
+
+and this one provides information about the populations being used in the study:
+
+https://ftp.1000genomes.ebi.ac.uk/vol1/ftp/README_populations.md
 
 We will be using the R and RStudio software applications to analyze the data (see separate PDF on Blackboard for software installation instructions).
 
