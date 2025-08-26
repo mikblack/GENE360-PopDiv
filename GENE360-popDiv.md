@@ -373,8 +373,8 @@ pca = pcaGenotypes(snpAnsCount)
 
 To visualise the populations across the principal components, we need to
 define colours for each populations. My arbitrary choice (slightly
-influenced by the Y-chomosome paper from last week) was: AFR (brown),
-AMR (red), EAS (purple), EUR (blue), SAS (green).
+influenced by the papers from last week) was: AFR (brown), AMR (red),
+EAS (purple), EUR (blue), SAS (green).
 
 ``` r
 ## Create an object relating to the population data
@@ -415,13 +415,24 @@ cluster together, and that the first three principal components do a
 reasonable job of capturing the genetic diversity between the
 populations.
 
-With the `scatterplot3d` package, you can plot the first three principal
-components at once (i.e., combining the information from the three
-scatterplots above). This shows that the European (EUR), East Asian
-(EAS) and South Asian (SAS) super-populations are relatively
-homogeneous, while the Ad-Mixed American (AMR) and African (AFR)
-super-populations exhibit greater variation, suggesting admixture within
-these groups.
+By installing the `scatterplot3d` package, you can plot the first three
+principal components at once (i.e., combining the information from the
+three scatterplots above).
+
+Install the package via:
+
+``` r
+install.packges('scatterplot3d')
+```
+
+Note - you only have to run the above code once. After you’ve installed
+the package, you can load it into your R workspace via the `library`
+command.
+
+This shows that the European (EUR), East Asian (EAS) and South Asian
+(SAS) super-populations are relatively homogeneous, while the Ad-Mixed
+American (AMR) and African (AFR) super-populations exhibit greater
+variation, suggesting admixture within these groups.
 
 ``` r
 library(scatterplot3d)
@@ -429,7 +440,7 @@ scatterplot3d(pca[,1], pca[,2], pca[,3], color=popCol, pch=16,
               cex.symbols=0.5, xlab="PC1", ylab="PC2", zlab="PC3")
 ```
 
-![](GENE360-popDiv_files/figure-gfm/unnamed-chunk-19-1.png)<!-- -->
+![](GENE360-popDiv_files/figure-gfm/unnamed-chunk-20-1.png)<!-- -->
 
 ## Phylogenetic trees
 
@@ -459,7 +470,7 @@ popFreqs = calcMajorFreq(snpAnsCount, ansPop)
 plot(hclust(dist(popFreqs)),hang=-1)
 ```
 
-![](GENE360-popDiv_files/figure-gfm/unnamed-chunk-21-1.png)<!-- -->
+![](GENE360-popDiv_files/figure-gfm/unnamed-chunk-22-1.png)<!-- -->
 
 The way in which the “leaves” of the tree cluster, reflects the
 similarity between the items analysed. In this case the populations are
@@ -508,7 +519,7 @@ hist(pc1Prop, 50, xlab="African ancestry proportion",
      main="Proportion of African ancestry across 1000 Genomes individuals")
 ```
 
-![](GENE360-popDiv_files/figure-gfm/unnamed-chunk-22-1.png)<!-- -->
+![](GENE360-popDiv_files/figure-gfm/unnamed-chunk-23-1.png)<!-- -->
 
 We can also look at this per subpopulation. Here is a summary of the
 admixture proportions based on PC1 for the AFR_ESN subpopulation:
@@ -576,7 +587,7 @@ barplot(asw_admix, legend=TRUE, args.legend=list(x="bottomright"),
         main="Admixture proportions for individuals in AFR_ASW subpopulation")
 ```
 
-![](GENE360-popDiv_files/figure-gfm/unnamed-chunk-28-1.png)<!-- -->
+![](GENE360-popDiv_files/figure-gfm/unnamed-chunk-29-1.png)<!-- -->
 
 How about the AFR_ESN subpopulation?
 
@@ -592,7 +603,7 @@ barplot(esn_admix, legend=TRUE, args.legend=list(x="bottomright"),
         main="Admixture proportions for individuals in AFR_ESN population")
 ```
 
-![](GENE360-popDiv_files/figure-gfm/unnamed-chunk-30-1.png)<!-- -->
+![](GENE360-popDiv_files/figure-gfm/unnamed-chunk-31-1.png)<!-- -->
 
 ## Assessment tasks
 

@@ -1,14 +1,14 @@
 ---
 title: "GENE360 - software installation"
 author: "Professor Mik Black"
-date: "28 August 2024"
+date: "27 August 2025"
 output: 
   html_document: default
 ---
 
 <!-- knit document to generate html -->
-<!-- then on the command line run:  -->
-<!-- wkhtmltopdf --footer-spacing 7 --footer-font-size 10 --footer-left 'GENE360 - software installation'  --minimum-font-size 15 -B 23 -T 20 -R 20 -L 20 GENE360-R_setup.html GENE360-R_setup.pdf -->
+<!-- then run:  -->
+<!-- system("wkhtmltopdf --footer-spacing 7 --footer-font-size 10 --footer-left 'GENE360 - software installation'  --minimum-font-size 15 -B 23 -T 20 -R 20 -L 20 GENE360-R_setup.html GENE360-R_setup.pdf") -->
 
 
 ```{r setup, include=FALSE}
@@ -40,13 +40,14 @@ If you are running a version of R earlier than 3.6.1, that is probably okay, but
 
 If you already have RStudio installed, you can upgrade to the latest version by choosing "Check for Updates" from the RStudio "Help" menu. 
 
-### Student Desktop
+### Running via the Windows App
 
-If you are unable to install R and RStudio on your own device, then accessing these through the student desktop might be an option.  The following link:
+Windows App is the replacement for the Otago Student Desktop:
 
-https://student.desktop.otago.ac.nz
+https://ask.otago.ac.nz/knowledgebase/article/KA-10005663?svcArticleNumber=SA-000186
 
-will open a Windows Desktop on your computer, and you can access RStudio from the Start Menu in the lower left of the screen.
+If you have the Windows App installed on your computer, you can run RStudio by 
+selecting it from the list of Core Applications.
 
 ## Getting started
 

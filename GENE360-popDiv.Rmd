@@ -240,7 +240,7 @@ pca = pcaGenotypes(snpAnsCount)
 ```
 
 To visualise the populations across the principal components, we need to define colours for each populations. My arbitrary choice (slightly influenced by the 
-Y-chomosome paper from last week) was: AFR (brown), AMR (red), EAS (purple), EUR (blue), SAS (green).
+papers from last week) was: AFR (brown), AMR (red), EAS (purple), EUR (blue), SAS (green).
 
 ```{r}
 ## Create an object relating to the population data
@@ -267,9 +267,20 @@ plotPCA(pca, popCol)
 
 From the plots we can see that samples from the same population tend to cluster together, and that the first three principal components do a reasonable job of capturing the genetic diversity between the populations.
 
-With the `scatterplot3d` package, you can plot the first three principal
+By installing the `scatterplot3d` package, you can plot the first three principal
 components at once (i.e., combining the information from the three
-scatterplots above).  This shows that the European (EUR), East Asian (EAS) and 
+scatterplots above).  
+
+Install the package via:
+
+```{r, eval=FALSE}
+install.packges('scatterplot3d')
+```
+
+Note - you only have to run the above code once. After you've installed the package, you can 
+load it into your R workspace via the `library` command.
+
+This shows that the European (EUR), East Asian (EAS) and 
 South Asian (SAS) super-populations are relatively homogeneous, while the Ad-Mixed American (AMR) and African (AFR) super-populations exhibit greater variation, suggesting admixture within these groups.
 
 ```{r}

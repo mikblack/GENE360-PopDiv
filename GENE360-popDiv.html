@@ -681,8 +681,8 @@ source(&quot;pcaGenotypes.R&quot;)
 pca = pcaGenotypes(snpAnsCount)</code></pre>
 <p>To visualise the populations across the principal components, we need
 to define colours for each populations. My arbitrary choice (slightly
-influenced by the Y-chomosome paper from last week) was: AFR (brown),
-AMR (red), EAS (purple), EUR (blue), SAS (green).</p>
+influenced by the papers from last week) was: AFR (brown), AMR (red),
+EAS (purple), EUR (blue), SAS (green).</p>
 <pre class="r"><code>## Create an object relating to the population data
 ansPop = snpAns$Population
 
@@ -712,13 +712,18 @@ plotPCA(pca, popCol)</code></pre>
 to cluster together, and that the first three principal components do a
 reasonable job of capturing the genetic diversity between the
 populations.</p>
-<p>With the <code>scatterplot3d</code> package, you can plot the first
-three principal components at once (i.e., combining the information from
-the three scatterplots above). This shows that the European (EUR), East
-Asian (EAS) and South Asian (SAS) super-populations are relatively
-homogeneous, while the Ad-Mixed American (AMR) and African (AFR)
-super-populations exhibit greater variation, suggesting admixture within
-these groups.</p>
+<p>By installing the <code>scatterplot3d</code> package, you can plot
+the first three principal components at once (i.e., combining the
+information from the three scatterplots above).</p>
+<p>Install the package via:</p>
+<pre class="r"><code>install.packges(&#39;scatterplot3d&#39;)</code></pre>
+<p>Note - you only have to run the above code once. After you’ve
+installed the package, you can load it into your R workspace via the
+<code>library</code> command.</p>
+<p>This shows that the European (EUR), East Asian (EAS) and South Asian
+(SAS) super-populations are relatively homogeneous, while the Ad-Mixed
+American (AMR) and African (AFR) super-populations exhibit greater
+variation, suggesting admixture within these groups.</p>
 <pre class="r"><code>library(scatterplot3d)
 scatterplot3d(pca[,1], pca[,2], pca[,3], color=popCol, pch=16,
               cex.symbols=0.5, xlab=&quot;PC1&quot;, ylab=&quot;PC2&quot;, zlab=&quot;PC3&quot;)</code></pre>
