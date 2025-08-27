@@ -422,7 +422,7 @@ three scatterplots above).
 Install the package via:
 
 ``` r
-install.packges('scatterplot3d')
+install.packages('scatterplot3d')
 ```
 
 Note - you only have to run the above code once. After you’ve installed
@@ -526,7 +526,7 @@ admixture proportions based on PC1 for the AFR_ESN subpopulation:
 
 ``` r
 ## Create new variable for subpopulations (just to make coding easier)
-subPop <- snpAns$SubPopulation 
+subPop = snpAns$SubPopulation 
 
 ## Have a look at African ancestry proportion for AFR_ESN subpopulation
 summary( pc1Prop[subPop=="AFR_ESN"] )
@@ -555,10 +555,10 @@ individual.
 
 ``` r
 ## Create a matrix where the rows sum to one per individual (i.e., column):
-admix <- rbind(pc1Prop, 1-pc1Prop)
+admix = rbind(pc1Prop, 1-pc1Prop)
 
 ## Add row names
-rownames(admix) <- c("African ancestry", "Non-African ancestry")
+rownames(admix) = c("African ancestry", "Non-African ancestry")
 
 ## Admixture data for first five individuals 
 admix[, 1:5]
@@ -573,10 +573,10 @@ African genetic ancestry:
 
 ``` r
 ## Extract data for ASW population
-asw_admix <- admix[, subPop=="AFR_ASW"]
+asw_admix = admix[, subPop=="AFR_ASW"]
 
 ## Sort inidividuals based on level of African genetic ancestry
-asw_admix <- asw_admix[, order(asw_admix[1,])]
+asw_admix = asw_admix[, order(asw_admix[1,])]
 ```
 
 And now we can make the bar plot:
@@ -593,8 +593,8 @@ How about the AFR_ESN subpopulation?
 
 ``` r
 ## Extract data and sort individuals
-esn_admix <- admix[, subPop=="AFR_ESN"]
-esn_admix <- esn_admix[, order(esn_admix[1,])]
+esn_admix = admix[, subPop=="AFR_ESN"]
+esn_admix = esn_admix[, order(esn_admix[1,])]
 ```
 
 ``` r
